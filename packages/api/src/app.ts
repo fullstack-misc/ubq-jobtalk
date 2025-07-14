@@ -1,6 +1,6 @@
 import cors from "cors";
 import express from "express";
-import JobsRouter from "./features/jobs/router";
+import JobsRouter from "./features/jobs/router.js";
 
 const app = express();
 

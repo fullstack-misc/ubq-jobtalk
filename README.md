@@ -66,7 +66,7 @@ La maquette est disponible ici : [Figma – Jobtalk](https://www.figma.com/desig
 - Côté API, utiliser [LowDB](https://github.com/typicode/lowdb) (déjà intégré) :
 
 ```js
-import { db } from "../db/db"; // -> packages/api/db/db.js
+import { db } from "../db/db"; // -> packages/api/db/db.ts
 ```
 
 ---
