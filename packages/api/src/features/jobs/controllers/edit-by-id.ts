@@ -2,7 +2,7 @@ import { db } from '../../../../db/db';
 import { Request, Response } from 'express';
 import { jobService } from '../services/job-service/job.service';
 
-export const edit = async (req: Request, res: Response): Promise<void> => {
+export const editById = async (req: Request, res: Response): Promise<void> => {
 	const id: null | number = Number.isNaN(Number(req.params.id)) ? null : Number(req.params.id);
 	if (!id) {
 		res.status(400).json({ message: 'Invalid job ID' });

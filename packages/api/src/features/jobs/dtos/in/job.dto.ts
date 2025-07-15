@@ -6,7 +6,7 @@ export const JobSchema = z.object({
 	jobType: z.enum(JobType),
 	contractType: z.enum(ContractType),
 	location: z.string(),
-	salary: z.number(),
+	salary: z.number().gte(0),
 	remoteType: z.enum(RemoteType),
 });
 

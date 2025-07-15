@@ -1,7 +1,7 @@
 import { jobRepository } from '../../repositories/job.repository';
 import { Job } from '../../models/job.model';
-import { JobServiceInterface } from './job-service';
-import { JobStatistics } from '../../dtos/out/stats';
+import { JobServiceInterface } from './job-service.interface';
+import { JobStatistics } from '../../dtos/out/statistics';
 import { ContractType, JobType } from '../../types';
 
 export const jobService: JobServiceInterface = {

@@ -1,7 +1,7 @@
 import { add } from './add';
 import { deleteById } from './delete-by-id';
-import { edit } from './edit';
+import { editById } from './edit-by-id';
 import { list } from './list';
-import { getStats } from './stats';
+import { getStatistics } from './get-statistics';
 
-export { list, add, edit, deleteById, getStats };
+export { list, add, editById, deleteById, getStatistics };

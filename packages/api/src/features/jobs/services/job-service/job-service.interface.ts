@@ -1,5 +1,5 @@
 import { Job } from '../../models/job.model';
-import { JobStatistics } from '../../dtos/out/stats';
+import { JobStatistics } from '../../dtos/out/statistics';
 
 export interface JobServiceInterface {
 	getAll(): Job[];
