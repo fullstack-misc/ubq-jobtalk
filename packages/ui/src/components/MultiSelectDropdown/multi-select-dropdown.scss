@@ -1,0 +1,104 @@
+.multi-select-dropdown {
+	position: relative;
+	display: inline-block;
+	margin: 1rem;
+
+	.dropdown-toggle {
+		width: 100%;
+		background-color: #f8f8f8;
+		border: 1px solid transparent;
+		border-radius: var(--radius-3);
+		padding: 10px 16px;
+		text-align: left;
+		cursor: pointer;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 30px;
+		font-size: 20px;
+		box-shadow: 0 4px 13px rgba(#43434333, 0.2);
+
+		&__circle {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 20px;
+			width: 20px;
+			background-color: var(--light-purple-bg-color);
+			border-radius: 50%;
+			vertical-align: middle;
+		}
+
+		&__circle__caret {
+			padding: 0.2rem;
+		}
+
+		&.dropdown-toggle-open {
+			border: 1px solid var(--btn-border-color);
+		}
+	}
+
+	.dropdown-menu {
+		position: absolute;
+		top: 125%;
+		left: 0;
+		width: auto;
+		background: white;
+		border: 1px solid #ccc;
+		border-radius: 0.3rem;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		z-index: 10;
+		overflow-y: auto;
+
+		.dropdown-option {
+			display: flex;
+			flex-direction: row;
+			white-space: nowrap;
+			align-items: center;
+			padding: 7px 24px 7px 16px;
+			width: auto;
+			gap: 10px;
+
+			&:hover {
+				cursor: pointer;
+				background-color: var(--light-purple-bg-color) !important;
+			}
+		}
+
+		.dropdown-option__checkmark {
+			width: 14px;
+			height: 14px;
+			border: 1px solid var(--checkbox-border-color) !important;
+			border-radius: 15%;
+			margin-right: 8px;
+		}
+		.dropdown-option__checkbox {
+			width: 14px;
+			height: 14px;
+			display: none;
+
+			&:checked + .dropdown-option__checkmark {
+				display: inline-block;
+				background: url('../../assets/icons/check.svg') var(--dark-purple-bg-color) no-repeat center;
+				background-size: contain;
+				transition: background 0.7s ease;
+			}
+		}
+	}
+
+	.selected-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		min-height: 48px;
+		margin-top: 10px;
+		transition: min-height 0.2s ease;
+
+		.tag {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			gap: 20px;
+		}
+	}
+}

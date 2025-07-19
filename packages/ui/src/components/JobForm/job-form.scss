@@ -1,0 +1,131 @@
+.job-form {
+	background: white;
+	padding: 30px 40px;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+	margin: 0 auto;
+	position: relative;
+
+	&__header {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+
+		h2 {
+			margin: 0;
+			font-size: 1.5rem;
+		}
+	}
+
+	&__body {
+		margin-top: 1rem;
+	}
+
+	&__field {
+		width: 100%;
+		margin: 20px 0;
+
+		label {
+			display: block;
+			margin-bottom: 0.5rem;
+		}
+	}
+
+	input,
+	select {
+		padding: 10px 16px;
+		margin: 0;
+		border: 1px solid var(--primary-border-color);
+		border-radius: var(--radius-3);
+	}
+
+	input {
+		width: calc(100% - 32px);
+	}
+	select {
+		width: 100%;
+
+		appearance: none; // 💥 remove default caret (cross-browser)
+		-webkit-appearance: none;
+		-moz-appearance: none;
+
+		background: url('../../assets/icons/caret.svg') no-repeat right 0.75rem center;
+		background-size: 1rem;
+
+		padding-right: 2rem;
+
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		font-size: 1rem;
+	}
+	.circle {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 20px;
+		width: 20px;
+		background-color: var(--light-purple-bg-color);
+		border-radius: 50%;
+		vertical-align: middle;
+	}
+
+	.circle__caret {
+		padding: 0.2rem;
+	}
+
+	.error {
+		color: red;
+		font-size: 0.875rem;
+	}
+
+	&__actions {
+		margin-top: 1rem;
+
+		&__delete {
+			vertical-align: middle;
+			text-align: center;
+			transform: translateY(1.9rem);
+		}
+
+		&__submit {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+}
+
+.select-wrapper {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+
+	select {
+		width: 100%;
+		padding: 10px 16px;
+		border: 1px solid var(--primary-border-color);
+		border-radius: var(--radius-3);
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+	}
+
+	.circle {
+		position: absolute;
+		right: 1rem;
+		top: 50%;
+		transform: translateY(-50%);
+		pointer-events: none;
+		background-color: var(--light-purple-bg-color);
+		border-radius: 50%;
+		height: 20px;
+		width: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.circle__caret {
+		padding: 0.2rem;
+	}
+}
