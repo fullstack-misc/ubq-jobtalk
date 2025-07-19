@@ -6,4 +6,5 @@ export interface JobServiceInterface {
 	getById(id: number): Job | undefined;
 	getIndexById(id: number): number;
 	getStatistics(jobs: Job[]): JobStatistics;
+	isIdParameterValid(id: string): boolean;
 }

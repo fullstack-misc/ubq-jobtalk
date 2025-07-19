@@ -3,6 +3,7 @@ import { Job } from '../../models/job.model';
 import { JobServiceInterface } from './job-service.interface';
 import { JobStatistics } from '../../dtos/out/statistics';
 import { ContractType, JobType } from '../../types';
+import { getRoundedAverageSalary } from '../../helpers/get-rounded-average-salary.helper';
 
 export const jobService: JobServiceInterface = {
 	getAll: () => {
@@ -14,7 +15,7 @@ export const jobService: JobServiceInterface = {
 	getIndexById: (id: number): number => {
 		return jobRepository.getIndexById(id);
 	},
-	getStatistics: function (jobs: Job[]): JobStatistics {
+	getStatistics: (jobs: Job[]): JobStatistics => {
 		if (jobs.length === 0) {
 			return {
 				averageSalary: null,
@@ -25,9 +26,6 @@ export const jobService: JobServiceInterface = {
 		}
 
 		const offersPerCity: Record<string, number> = {};
-		const averageSalary: number = Math.round(
-			jobs.reduce((sum, job) => sum + job.salary, 0) / jobs.length,
-		);
 
 		const contractTypeCount = new Map<string, number>();
 		let maxContractType: [number, ContractType] = [0, ContractType.cdi];
@@ -52,10 +50,15 @@ export const jobService: JobServiceInterface = {
 		}
 
 		return {
-			averageSalary: averageSalary,
+			averageSalary: getRoundedAverageSalary(jobs),
 			mostCommonContractType: maxContractType[1],
 			mostCommonJobTitle: maxJobTitle[1],
 			offersPerCity: offersPerCity,
 		};
+	},
+	isIdParameterValid(providedId: string): boolean {
+		const id = Number(providedId);
+
+		return Number.isNaN(id) ? false : id >= 1;
 	},
 };
