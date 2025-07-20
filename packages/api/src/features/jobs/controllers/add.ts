@@ -2,6 +2,24 @@ import { db } from '../../../../db/db';
 import { Request, Response } from 'express';
 import { Job } from '../models/job.model';
 
+/**
+ * @openapi
+ * /jobs:
+ *   post:
+ *     summary: Add a new job
+ *     tags: [Jobs]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Job'
+ *     responses:
+ *       201:
+ *         description: Job created successfully
+ *       500:
+ *         description: Failed to save job
+ */
 export const add = async (request: Request, response: Response) => {
 	try {
 		db.data.jobs.push(Job.fromDto(request.body));
