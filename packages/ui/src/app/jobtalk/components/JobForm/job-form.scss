@@ -1,0 +1,110 @@
+.job-form {
+	background: white;
+	padding: 30px 40px;
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+	margin: 0 auto;
+	position: relative;
+
+	&__header {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+
+		h2 {
+			margin: 0;
+			font-size: 24px;
+		}
+	}
+
+	&__body {
+		margin-top: 1rem;
+	}
+
+	&__field {
+		font-size: 18px;
+		font-weight: 400;
+		width: 100%;
+		margin: 20px 0;
+
+		.input-field {
+			font-size: 18px;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 0.5rem;
+		}
+	}
+
+	input,
+	select {
+		padding: 10px 16px;
+		margin: 0;
+		border: 1px solid var(--primary-border-color);
+		border-radius: var(--radius-3);
+	}
+
+	input {
+		width: calc(100% - 32px);
+	}
+	select {
+		width: 100%;
+
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+
+		background: url('../../../../assets/icons/caret.svg') no-repeat right 0.75rem center;
+		background-size: 1rem;
+
+		padding-right: 2rem;
+
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		font-size: 1rem;
+	}
+
+	.error {
+		color: red;
+		font-size: 0.875rem;
+		margin-top: 0.25rem;
+	}
+
+	&__actions {
+		margin-top: 1rem;
+		font-size: 18px;
+		font-weight: 500;
+
+		&__delete {
+			vertical-align: middle;
+			text-align: center;
+			transform: translateY(1.7rem);
+		}
+
+		&__submit {
+			display: block;
+			margin: 0 auto;
+		}
+	}
+}
+
+.select-wrapper {
+	font-size: 18px;
+	position: relative;
+	display: inline-block;
+	width: 100%;
+
+	select {
+		font-size: 18px;
+		font-weight: 400;
+		width: 100%;
+		padding: 10px 16px;
+		border: 1px solid var(--primary-border-color);
+		border-radius: var(--radius-3);
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+	}
+}
