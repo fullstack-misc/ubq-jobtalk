@@ -8,7 +8,7 @@
 ## 🚀 Installation
 - Le projet est découpé en deux packages :
   - L’interface utilisateur : `/packages/ui`
-  - La partie _API_ backend : `/packages/api`
+  - La partie _API_ : `/packages/api`
 
 ### Étapes :
 
@@ -29,16 +29,15 @@ npm run dev
 
 
 ## 🎯 Objectif
-
-- Back-end :
+- _Back-end_ :
   - [x] Lister les jobs
   - [x] Créer un job
   - [x] Modifier un job
   - [x] Supprimer un job
   - Bonus :
-    - [x] Statistiques des jobs `GET` sur http://localhost:3000/jobs/stats
-    - [x] Swagger `GET` sur http://localhost:3000/swagger`
-- Front-end :`
+    - [x] Statistiques des jobs : `GET` sur http://localhost:3000/jobs/stats
+    - [x] Swagger : `GET` sur http://localhost:3000/swagger`
+- _Front-end_ :
   - [x] Lister les jobs
   - [x] Créer un job
   - [x] Modifier un job
@@ -52,3 +51,11 @@ npm run dev
   - [x] Modales pour la création et modification des jobs
   - Bonus :
     - [x] Statistiques des jobs http://localhost:5173/stats
+
+## Améliorations possibles
+- _Back-end_ :
+  - Ajouter des tests
+- _Front-end_ :
+  - Refactoriser le code
+  - Ajout de rafraichissement automatique de la liste des jobs après certaines actions
+  - Ajouter des tests
