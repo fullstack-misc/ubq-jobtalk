@@ -28,15 +28,15 @@ export const jobService: JobServiceInterface = {
 		const offersPerCity: Record<string, number> = {};
 
 		const contractTypeCount = new Map<string, number>();
-		let maxContractType: [number, ContractType] = [0, ContractType.cdi];
+		let maxContractType: [number, null|ContractType] = [0, null];
 
 		const jobTitleCount = new Map<string, number>();
-		let maxJobTitle: [number, JobType] = [0, JobType.fullstack];
+		let maxJobTitle: [number, null|JobType] = [0, null];
 
 		for (const job of jobs) {
 			offersPerCity[job.location] = (offersPerCity[job.location] ?? 0) + 1;
 
-			let contractCount = jobTitleCount.get(job.jobType) ?? 0;
+			let contractCount = contractTypeCount.get(job.contractType) ?? 0;
 			contractTypeCount.set(job.contractType, ++contractCount);
 			if (maxContractType[0] < contractCount) {
 				maxContractType = [contractCount, job.contractType];
@@ -53,7 +53,7 @@ export const jobService: JobServiceInterface = {
 			averageSalary: getRoundedAverageSalary(jobs),
 			mostCommonContractType: maxContractType[1],
 			mostCommonJobTitle: maxJobTitle[1],
-			offersPerCity: offersPerCity,
+			offersPerCity: Object.keys(offersPerCity).length === 0 ? null : offersPerCity,
 		};
 	},
 	isIdParameterValid(providedId: string): boolean {
