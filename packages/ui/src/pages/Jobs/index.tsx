@@ -23,6 +23,7 @@ import './jobs.scss';
 import Modal from '../../components/Modal';
 import JobForm, { JobFormData } from '../../components/JobForm';
 import useJobActions from '../../hooks/api/useJobActions';
+import JobList from '../../components/JobList';
 
 function Jobs() {
 	const { jobsData, isLoading, error } = useJobsData();
@@ -106,24 +107,25 @@ function Jobs() {
 				</div>
 			</div>
 			<Filters filters={filters} onChange={setFilters} />
-			<ul className="job-list">
-				{filteredJobs.map((job) => (
-					<li key={`${job.jobType}-${job.id}`}>
-						<JobCard
-							{...job}
-							formattedJob={getFormattedJob(job.jobType)}
-							formattedContract={getFormattedContract(job.contractType)}
-							formattedNumber={formatNumber(job.salary)}
-							formattedRemote={getFormattedRemote(job.remoteType)}
-							remoteClass={getFormattedRemoteClass(job.remoteType)}
-							timeAgo={capitalizeWord(
-								formatDistanceToNow(parseISO(job.createdAt), { addSuffix: true, locale: fr }),
-							)}
-							refreshJobs={refreshJobsAfterDeletion}
-						/>
-					</li>
-				))}
-			</ul>
+			{/*<ul className="job-list">*/}
+			{/*	{filteredJobs.map((job) => (*/}
+			{/*		<li key={`${job.jobType}-${job.id}`}>*/}
+			{/*			<JobCard*/}
+			{/*				{...job}*/}
+			{/*				formattedJob={getFormattedJob(job.jobType)}*/}
+			{/*				formattedContract={getFormattedContract(job.contractType)}*/}
+			{/*				formattedNumber={formatNumber(job.salary)}*/}
+			{/*				formattedRemote={getFormattedRemote(job.remoteType)}*/}
+			{/*				remoteClass={getFormattedRemoteClass(job.remoteType)}*/}
+			{/*				timeAgo={capitalizeWord(*/}
+			{/*					formatDistanceToNow(parseISO(job.createdAt), { addSuffix: true, locale: fr }),*/}
+			{/*				)}*/}
+			{/*				refreshJobs={refreshJobsAfterDeletion}*/}
+			{/*			/>*/}
+			{/*		</li>*/}
+			{/*	))}*/}
+			{/*</ul>*/}
+			<JobList jobs={filteredJobs} refreshJobsAfterDeletion={refreshJobsAfterDeletion} />
 		</>
 	);
 }

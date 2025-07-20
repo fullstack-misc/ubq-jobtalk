@@ -29,6 +29,7 @@ function Statistics() {
 					: averageSalary.toLocaleString('fr-FR', {
 							currency: 'EUR',
 							style: 'currency',
+						maximumFractionDigits: 0,
 						})}
 			</p>
 			<p className="stats__description">
