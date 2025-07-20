@@ -3,13 +3,11 @@ import { JobSchema } from '../features/jobs/dtos/in/job.dto';
 import { JobStatisticsSchema } from '../features/jobs/dtos/out/statistics';
 
 const registry = new OpenAPIRegistry();
-
-registry.register('Job', JobSchema);
+registry.register('Job', JobSchema)
 registry.register('JobStatistics', JobStatisticsSchema);
 
 const generator = new OpenApiGeneratorV3(registry.definitions);
-
-export const openAPIDocument = generator.generateDocument({
+export const openApiDocument = generator.generateDocument({
 	openapi: '3.0.0',
 	info: {
 		title: 'My API',

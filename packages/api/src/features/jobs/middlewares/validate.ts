@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { ZodSchema, ZodError } from 'zod';
-import { capitalizeWord } from '../shared/utils/capitalize-word.utils';
+import { capitalizeWord } from '../../../shared/utils/capitalize-word.utils';
 
 export const validate =
 	(schema: ZodSchema) =>
