@@ -1,5 +1,5 @@
 import cors from 'cors';
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import helmet from 'helmet';
 import swaggerUi from 'swagger-ui-express';
 
@@ -22,9 +22,16 @@ const mergedSpec = {
 
 app
 	.use(cors())
-	.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }))
 	.use(express.json())
-	.use('/swagger', swaggerUi.serve, swaggerUi.setup(mergedSpec))
+	.use(
+		'/swagger',
+		swaggerUi.serve,
+		swaggerUi.setup(mergedSpec),
+		(request: Request, response: Response, next: NextFunction) => {
+			response.removeHeader('Content-Security-Policy');
+			next();
+		},
+	)
 	.use('/jobs', JobsRouter);
 
 export { app };
