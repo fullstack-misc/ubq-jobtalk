@@ -1,0 +1,33 @@
+.job-form__circle {
+	position: absolute;
+	right: 0.9rem;
+	top: 50%;
+	transform: translateY(-50%);
+	pointer-events: none;
+	background-color: var(--light-purple-bg-color);
+	border-radius: 50%;
+	height: 20px;
+	width: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__caret {
+		padding: 0.2rem;
+	}
+}
+
+.multi-select-dropdown__circle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 20px;
+	width: 20px;
+	background-color: var(--light-purple-bg-color);
+	border-radius: 50%;
+	vertical-align: middle;
+
+	&__caret {
+		padding: 0.2rem;
+	}
+}

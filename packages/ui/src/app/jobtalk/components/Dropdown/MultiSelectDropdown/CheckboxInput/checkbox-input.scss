@@ -1,0 +1,37 @@
+.checkbox-input-option {
+	font-size: 18px;
+	font-weight: 500;
+	display: flex;
+	flex-direction: row;
+	white-space: nowrap;
+	align-items: center;
+	padding: 7px 24px 7px 16px;
+	width: auto;
+	gap: 10px;
+
+	&:hover {
+		cursor: pointer;
+		background-color: var(--light-purple-bg-color) !important;
+	}
+
+	&__checkmark {
+		width: 14px;
+		height: 14px;
+		border: 1px solid var(--checkbox-border-color) !important;
+		border-radius: 15%;
+		margin-right: 8px;
+	}
+	&__checkbox {
+		width: 14px;
+		height: 14px;
+		display: none;
+
+		&:checked + .checkbox-input-option__checkmark {
+			display: inline-block;
+			background: url('../../../../../../assets/icons/check.svg') var(--dark-purple-bg-color)
+				no-repeat center;
+			background-size: contain;
+			transition: background 0.7s ease;
+		}
+	}
+}
