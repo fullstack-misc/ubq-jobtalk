@@ -976,17 +976,7 @@
       "jobType": "manager",
       "contractType": "cdi",
       "location": "Paris",
-      "salary": 50000,
-      "createdAt": "2025-07-19",
-      "remoteType": "ponctual"
-    },
-    {
-      "id": 99,
-      "companyName": "Ubi",
-      "jobType": "fullstack",
-      "contractType": "stage",
-      "location": "ivry",
-      "salary": 7,
+      "salary": 60000,
       "createdAt": "2025-07-19",
       "remoteType": "ponctual"
     },
