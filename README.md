@@ -36,7 +36,7 @@ npm run dev
   - [x] Supprimer un job
   - Bonus :
     - [x] Statistiques des jobs : `GET` sur http://localhost:3000/jobs/stats
-    - [x] Swagger : `GET` sur http://localhost:3000/swagger`
+    - [x] Swagger : `GET` sur http://localhost:3000/swagger
 - _Front-end_ :
   - [x] Lister les jobs
   - [x] Créer un job
