@@ -5,9 +5,9 @@ const swaggerOptions: Options = {
 	definition: {
 		openapi: '3.0.0',
 		info: {
-			title: 'Jobs API',
+			title: 'API',
 			version: '1.0.0',
-			description: 'API documentation for the Jobs service',
+			description: 'API documentation',
 		},
 		servers: [
 			{

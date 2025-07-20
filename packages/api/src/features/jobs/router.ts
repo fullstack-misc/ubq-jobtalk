@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { JobSchema } from './dtos/in/job.dto';
-import { validate } from '../../middlewares/validate';
+import { validate } from './middlewares/validate';
 import { add, deleteById, editById, getStatistics, list } from './controllers';
 
 const JobsRouter = Router();
