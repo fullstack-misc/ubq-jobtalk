@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { Job } from '../models/job.model';
+import { jobService } from '../services/job-service/job.service';
 
 /**
  * @openapi
