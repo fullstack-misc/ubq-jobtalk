@@ -16,7 +16,7 @@ const swaggerOptions: Options = {
 			},
 		],
 	},
-	apis: ['./src/**/*.ts'],
+	apis: ['../src/features/**/*.ts'],
 };
 
 export const swaggerJsDocSpec = swaggerJSDoc(swaggerOptions) as OpenAPIObject;
