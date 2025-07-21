@@ -1,6 +1,7 @@
 import { db } from '../../../../db/db';
 import { Request, Response } from 'express';
 import { Job } from '../models/job.model';
+import { jobService } from '../services/job-service/job.service';
 
 /**
  * @openapi
@@ -22,9 +23,7 @@ import { Job } from '../models/job.model';
  */
 export const add = async (request: Request, response: Response) => {
 	try {
-		db.data.jobs.push(Job.fromDto(request.body));
-		await db.write();
-
+		await jobService.addJob(Job.fromDto(request.body));
 		response.status(201).send();
 	} catch (error) {
 		console.error('Error writing to database:', error);

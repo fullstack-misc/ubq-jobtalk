@@ -45,9 +45,7 @@ export const editById = async (request: Request, response: Response): Promise<vo
 			return;
 		}
 
-		Object.assign(job, request.body);
-		await db.write();
-
+		await jobService.editJob(job, request.body);
 		response.status(204).json();
 	} catch (error) {
 		console.error('Error updating job:', error);
