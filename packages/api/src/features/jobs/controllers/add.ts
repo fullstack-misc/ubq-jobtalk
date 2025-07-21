@@ -22,8 +22,7 @@ import { Job } from '../models/job.model';
  */
 export const add = async (request: Request, response: Response) => {
 	try {
-		db.data.jobs.push(Job.fromDto(request.body));
-		await db.write();
+		await jobService.addJob(Job.fromDto(request.body));
 
 		response.status(201).send();
 	} catch (error) {
