@@ -28,10 +28,18 @@ jobs:
       run: |
         cd packages/api
         npm ci --prefer-offline
+    - name: Format check
+      run: |
+        cd packages/api
+        npm run format:check
     - name: ESLint check
       run: |
         cd packages/api
         npm run lint:check
+    - name: Unit tests
+      run: |
+        cd packages/api
+        npm run test
     - name: Build
       run: |
         cd packages/api

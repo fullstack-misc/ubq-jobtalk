@@ -1,0 +1,8 @@
+{
+	"src/**/*.ts": [
+		"eslint ./src --ext .js,.ts --fix",
+		"eslint ./src --ext .js,.ts",
+		"prettier --write \"./src/**/*.{js,ts}\"",
+		"prettier --check \"./src/**/*.{js,ts}\""
+	]
+}

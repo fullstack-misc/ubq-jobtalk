@@ -1,9 +1,8 @@
-import { db } from '../../../../db/db';
 import { Request, Response } from 'express';
 import { jobService } from '../services/job-service/job.service';
 
 /**
- * @swagger
+ * @openapi
  * /jobs/{id}:
  *   delete:
  *     summary: Delete a job by ID
@@ -37,9 +36,7 @@ export const deleteById = async (request: Request, response: Response): Promise<
 			return;
 		}
 
-		db.data.jobs.splice(index, 1);
-		await db.write();
-
+		await jobService.deleteByIndex(index);
 		response.status(204).send();
 	} catch (error) {
 		console.error('Error deleting job:', error);

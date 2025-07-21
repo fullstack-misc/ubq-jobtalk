@@ -4,8 +4,18 @@ import { JobServiceInterface } from './job-service.interface';
 import { JobStatistics } from '../../dtos/out/statistics';
 import { ContractType, JobType } from '../../types';
 import { getRoundedAverageSalary } from '../../helpers/get-rounded-average-salary.helper';
+import { JobDto } from '../../dtos/in/job.dto';
 
 export const jobService: JobServiceInterface = {
+	addJob: async (job: Job): Promise<void> => {
+		await jobRepository.addJob(job);
+	},
+	deleteByIndex: async (index: number): Promise<void> => {
+		await jobRepository.deleteByIndex(index);
+	},
+	editJob: async (job: Job, data: Partial<JobDto>): Promise<void> => {
+		await jobRepository.editJob(job, data);
+	},
 	getAll: () => {
 		return jobRepository.getAll();
 	},
@@ -28,10 +38,10 @@ export const jobService: JobServiceInterface = {
 		const offersPerCity: Record<string, number> = {};
 
 		const contractTypeCount = new Map<string, number>();
-		let maxContractType: [number, null|ContractType] = [0, null];
+		let maxContractType: [number, null | ContractType] = [0, null];
 
 		const jobTitleCount = new Map<string, number>();
-		let maxJobTitle: [number, null|JobType] = [0, null];
+		let maxJobTitle: [number, null | JobType] = [0, null];
 
 		for (const job of jobs) {
 			offersPerCity[job.location] = (offersPerCity[job.location] ?? 0) + 1;
