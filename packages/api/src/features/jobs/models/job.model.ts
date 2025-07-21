@@ -1,7 +1,7 @@
 import { JobDto } from '../dtos/in/job.dto';
 import { getJobId } from '../services/id.service';
 import { ContractType, JobType, RemoteType } from '../types';
-import { capitalizeWord } from '../../../shared/utils/capitalize-word.utils';
+import { capitalizeWord } from '../../../shared/utils/capitalize-word/capitalize-word.utils';
 
 export class Job {
 	constructor(
