@@ -21,6 +21,7 @@ const mergedSpec = {
 };
 
 app
+	.use(helmet())
 	.use(cors())
 	.use(express.json())
 	.use(
