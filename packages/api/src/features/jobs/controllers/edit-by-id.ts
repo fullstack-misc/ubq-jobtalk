@@ -1,4 +1,3 @@
-import { db } from '../../../../db/db';
 import { Request, Response } from 'express';
 import { jobService } from '../services/job-service/job.service';
 

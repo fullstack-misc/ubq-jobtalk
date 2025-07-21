@@ -1,4 +1,3 @@
-import { db } from '../../../../db/db';
 import { Request, Response } from 'express';
 import { Job } from '../models/job.model';
 

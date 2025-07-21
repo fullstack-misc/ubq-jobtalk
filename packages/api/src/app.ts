@@ -1,6 +1,5 @@
 import cors from 'cors';
 import express, { Request, Response, NextFunction } from 'express';
-import helmet from 'helmet';
 import swaggerUi from 'swagger-ui-express';
 
 import JobsRouter from './features/jobs/router';
