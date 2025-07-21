@@ -12,6 +12,8 @@ dist
 dist-ssr
 *.local
 
+coverage
+
 db/jobs.json
 db.json
 
