@@ -26,6 +26,7 @@ app
 	.use(cors())
 	.use(express.json())
 	.use('/swagger', swaggerRateLimiter, swaggerUi.serve, swaggerUi.setup(mergedSpec))
-	.use('/jobs', apiRateLimiter, JobsRouter);
+	.use(apiRateLimiter)
+	.use('/jobs', JobsRouter);
 
 export { app };
