@@ -2,10 +2,10 @@
   "name": "technical_test_dev_web_api",
   "version": "1.0.0",
   "main": "src/index.ts",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "build": "tsc",
-    "start": "tsc && node dist/index.js",
+    "start": "tsc && node dist/src/index.js",
     "dev": "tsx --watch src/index.ts",
     "format:check": "prettier --check \"./src/**/*.{js,ts}\"",
     "format:fix": "prettier --write \"./src/**/*.{js,ts}\"",
