@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "start": "tsc && node dist/index.js",
+    "start": "tsc && node dist/src/index.js",
     "dev": "tsx --watch src/index.ts",
     "format:check": "prettier --check \"./src/**/*.{js,ts}\"",
     "format:fix": "prettier --write \"./src/**/*.{js,ts}\"",
@@ -21,6 +21,8 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
     "@types/node": "^24.0.13",
@@ -28,6 +30,7 @@
     "@types/swagger-ui-express": "^4.1.8",
     "@typescript-eslint/eslint-plugin": "^8.36.0",
     "@typescript-eslint/parser": "^8.36.0",
+    "babel-jest": "^30.0.5",
     "eslint": "^9.31.0",
     "eslint-plugin-unused-imports": "^4.1.4",
     "husky": "^9.1.7",
@@ -44,6 +47,7 @@
     "@types/jest": "^30.0.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
+    "express-rate-limit": "^8.0.1",
     "helmet": "^8.1.0",
     "lowdb": "^7.0.1",
     "swagger-jsdoc": "^6.2.8",

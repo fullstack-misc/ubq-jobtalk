@@ -1,8 +1,16 @@
 import { JSONFilePreset } from "lowdb/node";
 import jobs from "./jobs.json";
+import { Job } from '../src/features/jobs/models/job.model';
 
-const defaultData = { jobs: jobs };
+export interface DBData {
+	jobs: Job[];
+}
 
-const db = await JSONFilePreset("db.json", defaultData);
+const defaultData:DBData = { jobs: jobs as Job[] };
+
+let db: Awaited<ReturnType<typeof JSONFilePreset<DBData>>>;
+(async () => {
+	db = await JSONFilePreset<DBData>('db.json', defaultData);
+})();
 
 export { db };

@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { ZodSchema, ZodError } from 'zod';
 import { capitalizeWord } from '../../../shared/utils/capitalize-word/capitalize-word.utils';
 
-export const validate =
+export const validateMiddleware =
 	(schema: ZodSchema) =>
 	(req: Request, res: Response, next: NextFunction): void => {
 		try {
