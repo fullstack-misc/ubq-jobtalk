@@ -4,8 +4,8 @@
   "main": "src/index.ts",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "start": "tsc && node dist/src/index.js",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/src/index.js",
     "dev": "tsx --watch src/index.ts",
     "format:check": "prettier --check \"./src/**/*.{js,ts}\"",
     "format:fix": "prettier --write \"./src/**/*.{js,ts}\"",
@@ -25,6 +25,7 @@
     "@babel/preset-env": "^7.28.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
     "@types/node": "^24.0.13",
     "@types/swagger-jsdoc": "^6.0.4",
     "@types/swagger-ui-express": "^4.1.8",
@@ -44,7 +45,6 @@
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^8.0.0",
-    "@types/jest": "^30.0.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "express-rate-limit": "^8.0.1",
