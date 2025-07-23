@@ -28,6 +28,10 @@ jobs:
       run: |
         cd packages/ui
         npm ci --prefer-offline
+    - name: Format check
+      run: |
+        cd packages/ui
+        npm run format:check
     - name: ESLint check
       run: |
         cd packages/ui
