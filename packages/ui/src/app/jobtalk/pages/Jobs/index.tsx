@@ -14,7 +14,7 @@ import useFilteredJobs from '../../hooks/jobs/useFilteredJobs';
 import { FiltersState } from '../../components/Filters/FilterTags';
 
 function Jobs() {
-	const { jobsData, isLoading, error } = useJobsData();
+	const { jobsData, isLoading, error, fetchJobs } = useJobsData();
 
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [jobs, setJobs] = useState(jobsData);
@@ -34,12 +34,18 @@ function Jobs() {
 	const { addJob } = useJobActions();
 	const filteredJobs = useFilteredJobs(jobs, filters);
 
+	const refreshJobsAfterUpdate = (id: number, updatedJob: JobFormData): void => {
+		setJobs((prevJobs) => prevJobs.map((job) => (job.id === id ? { ...job, ...updatedJob } : job)));
+	};
+
 	const refreshJobsAfterDeletion = (id: number): void => {
 		setJobs((prevJobs) => prevJobs.filter((job) => job.id !== id));
 	};
 
 	const handleSubmit = async (data: JobFormData) => {
 		await addJob(data);
+		await fetchJobs();
+
 		setIsModalOpen(false);
 	};
 
@@ -61,7 +67,11 @@ function Jobs() {
 				</div>
 			</div>
 			<Filters filters={filters} onChange={setFilters} />
-			<JobList jobs={filteredJobs} refreshJobsAfterDeletion={refreshJobsAfterDeletion} />
+			<JobList
+				jobs={filteredJobs}
+				refreshJobsAfterUpdate={refreshJobsAfterUpdate}
+				refreshJobsAfterDeletion={refreshJobsAfterDeletion}
+			/>
 
 			{isModalOpen && (
 				<Modal onClose={() => setIsModalOpen(false)}>

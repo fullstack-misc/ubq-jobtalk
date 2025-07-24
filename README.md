@@ -52,10 +52,9 @@ npm run dev
   - Bonus :
     - [x] Statistiques des jobs http://localhost:5173/stats
 
-## Améliorations possibles
+## 🏁 Améliorations possibles
 - _Back-end_ :
   - Ajouter des tests
 - _Front-end_ :
   - Refactoriser le code
-  - Ajout de rafraichissement automatique de la liste des jobs après certaines actions
   - Ajouter des tests
