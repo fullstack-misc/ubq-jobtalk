@@ -14,7 +14,7 @@ import useFilteredJobs from '../../hooks/jobs/useFilteredJobs';
 import { FiltersState } from '../../components/Filters/FilterTags';
 
 function Jobs() {
-	const { jobsData, isLoading, error } = useJobsData();
+	const { jobsData, isLoading, error,fetchJobs } = useJobsData();
 
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [jobs, setJobs] = useState(jobsData);
@@ -44,6 +44,8 @@ function Jobs() {
 
 	const handleSubmit = async (data: JobFormData) => {
 		await addJob(data);
+		await fetchJobs();
+
 		setIsModalOpen(false);
 	};
 
