@@ -12,10 +12,11 @@ import { fr } from 'date-fns/locale';
 
 type JobListProps = {
 	jobs: JobResponseType[];
+	refreshJobsAfterUpdate: (id: number, updatedJob: JobResponseType) => void;
 	refreshJobsAfterDeletion: (id: number) => void;
 };
 
-function JobList({ jobs, refreshJobsAfterDeletion }: JobListProps) {
+function JobList({ jobs,refreshJobsAfterUpdate, refreshJobsAfterDeletion }: JobListProps) {
 	return (
 		<ul className="job-list">
 			{jobs.map((job) => (
@@ -30,7 +31,8 @@ function JobList({ jobs, refreshJobsAfterDeletion }: JobListProps) {
 						timeAgo={capitalizeWord(
 							formatDistanceToNow(parseISO(job.createdAt), { addSuffix: true, locale: fr }),
 						)}
-						refreshJobs={refreshJobsAfterDeletion}
+						refreshJobsAfterUpdate={refreshJobsAfterUpdate}
+						refreshJobsAfterDeletion={refreshJobsAfterDeletion}
 					/>
 				</li>
 			))}

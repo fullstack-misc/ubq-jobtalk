@@ -17,7 +17,8 @@ interface JobCardProps extends JobResponseType {
 	formattedRemote: string;
 	remoteClass: string;
 	timeAgo: string;
-	refreshJobs: (id: number) => void;
+	refreshJobsAfterUpdate: (id: number, updatedJob: JobFormData) => void;
+	refreshJobsAfterDeletion: (id: number) => void;
 }
 
 function JobCard({
@@ -34,7 +35,8 @@ function JobCard({
 	formattedRemote,
 	remoteClass,
 	timeAgo,
-	refreshJobs,
+	refreshJobsAfterUpdate,
+	refreshJobsAfterDeletion,
 }: JobCardProps) {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -45,6 +47,7 @@ function JobCard({
 
 	const handleSubmit = async (data: JobFormData) => {
 		await updateJob(id, data);
+		refreshJobsAfterUpdate(id, data);
 		handleCloseModal();
 	};
 
@@ -52,7 +55,7 @@ function JobCard({
 		try {
 			await deleteJob(id);
 			handleCloseModal();
-			refreshJobs(id);
+			refreshJobsAfterDeletion(id);
 		} catch (error) {
 			console.error('Failed to delete job', error);
 		}

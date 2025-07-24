@@ -34,6 +34,10 @@ function Jobs() {
 	const { addJob } = useJobActions();
 	const filteredJobs = useFilteredJobs(jobs, filters);
 
+	const refreshJobsAfterUpdate = (id: number, updatedJob: JobFormData): void => {
+		setJobs((prevJobs) => prevJobs.map((job) => (job.id === id ? { ...job, ...updatedJob } : job)));
+	};
+
 	const refreshJobsAfterDeletion = (id: number): void => {
 		setJobs((prevJobs) => prevJobs.filter((job) => job.id !== id));
 	};
@@ -61,7 +65,7 @@ function Jobs() {
 				</div>
 			</div>
 			<Filters filters={filters} onChange={setFilters} />
-			<JobList jobs={filteredJobs} refreshJobsAfterDeletion={refreshJobsAfterDeletion} />
+			<JobList jobs={filteredJobs} refreshJobsAfterUpdate={refreshJobsAfterUpdate} refreshJobsAfterDeletion={refreshJobsAfterDeletion} />
 
 			{isModalOpen && (
 				<Modal onClose={() => setIsModalOpen(false)}>
