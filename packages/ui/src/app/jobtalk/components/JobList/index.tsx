@@ -16,7 +16,7 @@ type JobListProps = {
 	refreshJobsAfterDeletion: (id: number) => void;
 };
 
-function JobList({ jobs,refreshJobsAfterUpdate, refreshJobsAfterDeletion }: JobListProps) {
+function JobList({ jobs, refreshJobsAfterUpdate, refreshJobsAfterDeletion }: JobListProps) {
 	return (
 		<ul className="job-list">
 			{jobs.map((job) => (

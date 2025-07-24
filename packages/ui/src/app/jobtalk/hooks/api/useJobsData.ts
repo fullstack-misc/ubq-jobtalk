@@ -36,7 +36,7 @@ function useJobsData() {
 	useEffect(() => {
 		fetchJobs();
 
-		return () => aborControllerRef.current?.abort(); // cleanup on unmount
+		return () => aborControllerRef.current?.abort();
 	}, [fetchJobs]);
 
 	return {

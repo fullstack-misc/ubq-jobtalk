@@ -1,2 +1,2 @@
-cd ./packages/api
+cd ./packages/ui
 npx lint-staged
